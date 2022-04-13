@@ -130,55 +130,50 @@
             <div class="row contenido" id="tickets-container">
                 <div class="eventos_item" id="niceto">
                     <img src="./img/event/17012-4k.jpg" class="img_items">
-                    <a class="btn" href="#">Comprar tickets</a>
+                    <a id="btn-1" class="btn">Comprar tickets <br><span id="precio-1">1000</span></a>
                 </div>
                 <div class="eventos_item" id="emilia">
                     <img src="./img/event/pueblo-limite-emilia-mernes-211-112275-rec.jpg" class="img_items">
-                    <a class="btn" href="#">Comprar tickets</a>
+                    <a id="btn-2" class="btn">Comprar tickets<br><span id="precio-2">7000</span></a>
                 </div>
                 <div class="eventos_item" id="ph">
                     <img class="img_items"
                         src="./img/event/gustavo-cerati-11-episodios-sinfonicos-con-parlantes-holofonicos-en-teatro-cendas-82114-rec.jpg">
-                        <a class="btn btn-agotado" onclick="alerta()">AGOTADO</a>
+                        <a class="btn btn-agotado">AGOTADO</a>
                 </div>
-                <div class="eventos_item" id="jam">
-                    <img class="img_items"
+                
+                <div id="adicional" class="oculto">
+                    <div class="eventos_item" id="jam">
+                        <img class="img_items"
                         src="./img/event/jam-club-105-en-club-cultural-matienzo-workshop-music-a-bordo-86309-rec.jpg"
                         alt="">
-                        <a class="btn" href="#">Comprar tickets</a>
+                        <a id="btn-4" class="btn">Comprar tickets<br><span id="precio-4">400</span></a>
                         
-                </div>
-                <div class="eventos_item" id="kanaloa">
-                    <img src="./img/event/jue-2001-kanaloa-83171-rec.jpg" alt="" class="img_items">
-                    <a class="btn" href="#">Comprar tickets</a>
-                    
-                </div>
-                <div class="eventos_item" id="refugio">
-                    <img src="./img/event/jueves-2001-refugio-112320-rec.jpg" alt="" class="img_items">
-                    <a class="btn" href="#">Comprar tickets</a>
-                    
-                </div>
-                <!-- <div class="eventos_item">
-                    <img src="./img/event/moskowa-verano-party-86254-rec.jpg" alt="" class="img_items">
-                    <a class="btn" href="#">Comprar tickets</a>
-                    
-                </div>
-                <div class="eventos_item">
-                    <img src="./img/event/nomade-jueves-20-112043-rec.jpg" alt="" class="img_items">
-                    <a class="btn" href="#">Comprar tickets</a>
-                    
-                </div>
-                <div class="eventos_item">
-                    <img src="./img/event/patagonia-picnic-kolombo-bel-fran-bertolosi-br-nico-cano-ar-79965-rec.jpg"
-                        alt="" class="img_items">
-                        <a class="btn" href="#">Comprar tickets</a>
+                    </div>
+                    <div class="eventos_item" id="kanaloa">
+                        <img src="./img/event/jue-2001-kanaloa-83171-rec.jpg" alt="" class="img_items">
+                        <a id="btn-5" class="btn">Comprar tickets<br><span id="precio-5">1500</span></a>
                         
-                </div> -->
+                    </div>
+                    <div class="eventos_item" id="refugio">
+                        <img src="./img/event/jueves-2001-refugio-112320-rec.jpg" alt="" class="img_items">
+                        <a id="btn-6" class="btn">Comprar tickets<br><span id="precio-6">4400</span></a>
+                        
+                    </div>
+                </div>
             </div>
         </div>
         <div class="verMas">
-             <a class="animate__animated animate__heartBeat animate__repeat-3 animate__delay-1s"
-             href="./pages/eventos.html">Ver todos los eventos</a> </button>
+             <a id="enlace" class="animate__animated animate__heartBeat animate__repeat-3 animate__delay-1s"
+             href="#" onclick="muestra();">Ver todos los eventos</a>
+             <a id="ocultar" class="oculto" onclick="oculta();" href="#">Ocultar</a>
+        </div>
+
+        <div class="totalCar container">
+            <p id="total"></p>
+        </div>
+        <div id="carrito" class="carrito container">
+
         </div>
         
     </main>
@@ -231,6 +226,7 @@
 
     <script src="./js/elementos.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/storage.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

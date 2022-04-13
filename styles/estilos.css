@@ -197,6 +197,42 @@ body {
   color: azure;
 }
 
+.oculto {
+  display: none;
+}
+
+.visible {
+  display: inline;
+}
+
+.nuevo {
+  display: flex;
+  flex-direction: row;
+}
+
+.carrito {
+  background-color: #636060;
+  color: #faf9f8;
+  text-align: center;
+  padding: 0;
+  border-radius: 7px;
+}
+.carrito p {
+  padding: 0;
+  border: solid 10px #af9b90;
+  border-radius: 7px;
+  font-size: 18px;
+}
+
+.totalCar {
+  text-align: center;
+  font-size: 20px;
+  color: #fff4f4;
+  background-color: #f35757;
+  border-radius: 13px;
+  margin-bottom: 20px;
+}
+
 .verMas {
   display: flex;
   justify-content: center;
