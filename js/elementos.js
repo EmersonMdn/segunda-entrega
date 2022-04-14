@@ -15,6 +15,9 @@ let btn3 = document.getElementById('btn-3');
 let btn4 = document.getElementById('btn-4');
 let btn5 = document.getElementById('btn-5');
 let btn6 = document.getElementById('btn-6');
+let enlace = document.getElementById('enlace');
+let oculto = document.getElementById('ocultar');
+// let vaciarLista = document.getElementById('vaciarCarrito')
 
 //PRECIOS
 let precio1 = document.getElementById('precio-1');
@@ -23,3 +26,6 @@ let precio3 = document.getElementById('precio-3');
 let precio4 = document.getElementById('precio-4');
 let precio5 = document.getElementById('precio-5');
 let precio6 = document.getElementById('precio-6');
+
+
+let datos = document.getElementById('recibo');
