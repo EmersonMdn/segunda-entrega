@@ -72,7 +72,6 @@ const renderizarElemento = () =>{
 }
 
 const vaciarCarro = () =>{
-    console.clear();
     datos.innerHTML = '';
     localStorage.clear();
     listaCarrito.innerHTML = '';
@@ -97,6 +96,7 @@ const renderizarLista = () => {
 }
 
 const pago = () =>{
+    console.table(carrito);
     document.getElementById('mensaje').innerText = 'Carrito listo para cobrar'; // MANDADO AL STORAGE
 
     //? USO DEL OPERADOR TERNARIO
@@ -111,8 +111,9 @@ const pago = () =>{
 //     }
 
 console.log(carrito?.ticket?.comprados || 'No hay tickets comprados');
-let comprados = {...carrito}; //? SPREAD DE OBJETOS
-console.table(comprados);
+//? USO DE SPREAD DE ARRAYS
+let comprados = {...carrito};
+console.log(comprados)
 }
 
 btn1.onclick = function(){
