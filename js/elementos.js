@@ -29,3 +29,4 @@ let precio6 = document.getElementById('precio-6');
 
 
 let datos = document.getElementById('recibo');
+let mensajesTxt = document.getElementById('mensaje');

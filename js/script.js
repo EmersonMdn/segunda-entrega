@@ -44,7 +44,7 @@ const addTicket = (btn,priceTicket, nameTicket) => {
     let position = carrito.findIndex(el => el.nombre === nameTicket);
     if (position != -1) {
         carrito[position].cantidad++;
-        if(carrito[position].cantidad >= 3){
+        if(carrito[position].cantidad >= 5){
             btn.className = 'btn btn-agotado';
             btn.innerText = 'Llegó al limite';
         }
@@ -67,11 +67,13 @@ const renderizarElemento = () =>{
         sumaTotal = sumaTotal + (carrito[i].precio * carrito[i].cantidad);
         precioTotal.innerText = `Total a pagar: ${sumaTotal}`;
         listaCarrito.append(elemento, vaciar);
-        }
     }
+}
 }
 
 const vaciarCarro = () =>{
+    console.clear();
+    datos.innerHTML = '';
     localStorage.clear();
     listaCarrito.innerHTML = '';
     precioTotal.innerHTML = '';
@@ -82,7 +84,9 @@ const vaciarCarro = () =>{
 
 //MOSTRAR OBJETOS DEL JSON EN EL LOCAL STORAGE
 const renderizarLista = () => {
-    let listaTicket = JSON.parse(localStorage.getItem('OnCart'));
+    datos.innerHTML = '';
+    datos.className = 'container bg-warning';
+    let listaTicket = JSON.parse(localStorage.getItem('OnCart')) || [] ; //? OPERADOR LOGICO OR
 
     for (let i = 0; i < listaTicket.length; i++) {
         let div = document.createElement('div');
@@ -93,16 +97,22 @@ const renderizarLista = () => {
 }
 
 const pago = () =>{
-    console.table(carrito);
     document.getElementById('mensaje').innerText = 'Carrito listo para cobrar'; // MANDADO AL STORAGE
 
+    //? USO DEL OPERADOR TERNARIO
+    localStorage.getItem('OnCart') ?  renderizarLista() :
+    localStorage.setItem('OnCart', JSON.stringify(carrito)); renderizarLista(); 
 
-    if (localStorage.getItem('OnCart')) {
-        renderizarLista();
-    }else{
-        localStorage.setItem('OnCart', JSON.stringify(carrito));
-        renderizarLista();
-    }
+//     if (localStorage.getItem('OnCart')) {
+//         renderizarLista();
+//     }else{
+//         localStorage.setItem('OnCart', JSON.stringify(carrito));
+//         renderizarLista();
+//     }
+
+console.log(carrito?.ticket?.comprados || 'No hay tickets comprados');
+let comprados = {...carrito}; //? SPREAD DE OBJETOS
+console.table(comprados);
 }
 
 btn1.onclick = function(){
