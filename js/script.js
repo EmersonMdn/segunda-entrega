@@ -52,6 +52,27 @@ const addTicket = (btn,priceTicket, nameTicket) => {
         let nuevoTicket= new ticket(nameTicket, precio,1);
         carrito.push(nuevoTicket);
     }
+    popAdded();
+}
+/**
+ * fUNCION QUE MUESTRA ALERTA AL AGREGAR AL CARRO
+ */
+const popAdded = () => {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      Toast.fire({
+        icon: 'success',
+        title: 'Agregado al carro'
+      })
 }
 const renderizarElemento = () =>{
     let sumaTotal = 0;
@@ -72,12 +93,31 @@ const renderizarElemento = () =>{
 }
 
 const vaciarCarro = () =>{
-    datos.innerHTML = '';
-    localStorage.clear();
-    listaCarrito.innerHTML = '';
-    precioTotal.innerHTML = '';
-    carrito = [];
-    document.getElementById('mensaje').innerText ='';
+    //? ALERTAS DE CONFIRMACION
+    Swal.fire({
+        title: 'Esta seguro que desea vaciar el carro?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Listo',
+            'El carrito esta vacio',
+            'success'
+          )
+          
+            datos.innerHTML = '';
+            localStorage.clear();
+            listaCarrito.innerHTML = '';
+            precioTotal.innerHTML = '';
+            carrito = [];
+            document.getElementById('mensaje').innerText ='';
+        }
+      })
 }
 
 
@@ -111,9 +151,16 @@ const pago = () =>{
 //     }
 
 console.log(carrito?.ticket?.comprados || 'No hay tickets comprados');
-//? USO DE SPREAD DE ARRAYS
+// USO DE SPREAD DE ARRAYS
 let comprados = {...carrito};
 console.log(comprados)
+
+//ALERTA AL COMPRAR
+Swal.fire({
+    title:'Comprado!',
+    icon:'success',
+    timer:2000}
+  )
 }
 
 btn1.onclick = function(){
@@ -145,6 +192,4 @@ btn6.addEventListener('click',function(){
     addTicket(btn6,'precio-6', 'Refugio');
     renderizarElemento();
 })
-
-
 
